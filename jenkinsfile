@@ -3,12 +3,14 @@ pipeline{
      stages{
         stage('build') {
             steps{
-               echo 'build'
+                echo 'build'
+               sh 'mvn clean package'
             }
         }
          stage('test') {
             steps{
-               echo 'test'
+                echo 'test'
+               sh 'mvn test'
             }
         }
          stage('Quality Gate - Sonar Qube') {
